@@ -1,5 +1,7 @@
 # Example file showing a circle moving on screen
 import pygame
+from canadian_border import Land
+
 
 # pygame setup
 pygame.init()
@@ -8,7 +10,11 @@ clock = pygame.time.Clock()
 running = True
 dt = 0
 
+#Instantiating Game Objects
+land = Land(screen)
 player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
+
+#Setup Environment
 
 while running:
     # poll for events
