@@ -1,7 +1,6 @@
 # Example file showing a circle moving on screen
 import pygame
-from canadian_border import Land
-
+from trudeau import Trudeau
 
 # pygame setup
 pygame.init()
@@ -11,11 +10,11 @@ running = True
 dt = 0
 
 #Instantiating Game Objects
-land = Land(screen)
-player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
 
 #Setup Environment
+land = Land(screen)
 scenery = pygame.image.load("images/background.png")
+tru = Trudeau(pygame, screen)
 
 while running:
     # poll for events
@@ -25,20 +24,11 @@ while running:
             running = False
 
     # fill the screen with a color to wipe away anything from last frame
-    # screen.fill("purple")
-    screen.blit(scenery, (0,0))
-
-    pygame.draw.circle(screen, "red", player_pos, 40)
-
     keys = pygame.key.get_pressed()
-    if keys[pygame.K_w]:
-        player_pos.y -= 300 * dt
-    if keys[pygame.K_s]:
-        player_pos.y += 300 * dt
-    if keys[pygame.K_a]:
-        player_pos.x -= 300 * dt
-    if keys[pygame.K_d]:
-        player_pos.x += 300 * dt
+    tru.move(keys)
+    screen.fill("purple")
+    tru.update(dt)
+    
 
     land.drawPlatforms(screen)
     land.drawPlatforms(screen)
