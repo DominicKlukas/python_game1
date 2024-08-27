@@ -15,6 +15,7 @@ land = Land(screen)
 player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
 
 #Setup Environment
+scenery = pygame.image.load("images/background.png")
 
 while running:
     # poll for events
@@ -24,7 +25,8 @@ while running:
             running = False
 
     # fill the screen with a color to wipe away anything from last frame
-    screen.fill("purple")
+    # screen.fill("purple")
+    screen.blit(scenery, (0,0))
 
     pygame.draw.circle(screen, "red", player_pos, 40)
 
@@ -38,6 +40,8 @@ while running:
     if keys[pygame.K_d]:
         player_pos.x += 300 * dt
 
+    land.drawPlatforms(screen)
+    land.drawPlatforms(screen)
     # flip() the display to put your work on screen
     pygame.display.flip()
 

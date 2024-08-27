@@ -1,13 +1,14 @@
+import pygame as pg
 
 """
 Sets up the game environment
 """
-class Land() 
+class Land(): 
     def __init__(self, screen):
         self.sc = screen
         return
 
 
-    def drawPlatforms(hellow):
-        pg.draw.rectangle(hellow.sc, "blue", 100, 40)
-        hellow.name = "50"
+    def drawPlatforms(self, screen): #changed hellow to screen
+        pg.draw.rect(screen, "blue", (200, 350, 200, 50)) #changed hellow.sc to screen
+        # screen.name = "50"
